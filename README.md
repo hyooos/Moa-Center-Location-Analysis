@@ -110,7 +110,26 @@
 
 ## Analysis Workflow
 
-(사진)
+```mermaid
+flowchart LR
+
+A["주거 취약성 분석<br/>(Housing Vulnerability Index)"]
+B["정책 수요 분석<br/>(Policy Demand Index)"]
+C["공급 공백 및 접근성 분석<br/>(Supply Gap Analysis)"]
+
+A --> D["후보지 선정"]
+B --> D
+C --> D
+
+D --> E["입지 우선순위 산정"]
+
+E --> F["시나리오 기반 접근성 시뮬레이션"]
+
+F --> G["Baseline · Random · Proposal 비교"]
+
+G --> H["모아 센터 최종 입지 제안"]
+```
+    
 ---
 
 ## Simulation Scenarios
