@@ -110,19 +110,7 @@
 
 ## Analysis Workflow
 
-```mermaid
-flowchart LR
-    A["Raw / Restricted Data"] --> B["HVI Construction"]
-    A --> C["Policy Demand"]
-    A --> D["Supply & Accessibility"]
-    B --> E["Index Integration"]
-    C --> E
-    D --> E
-    E --> F["Candidate Selection"]
-    F --> G["Accessibility Simulation"]
-    G --> H["Validation & Visualization"]
-```
-
+(사진)
 ---
 
 ## Simulation Scenarios
