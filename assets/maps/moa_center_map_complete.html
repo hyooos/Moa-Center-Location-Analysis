@@ -1,0 +1,2167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_f4d1391e772b3e1eceded98552218a2f {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+<div style="position: fixed; 
+            bottom: 50px; right: 50px; width: 250px; height: 180px; 
+            background-color: white; border:2px solid grey; z-index:9999; 
+            font-size:14px; padding: 10px">
+<p><b>모아센터 입지 지도</b></p>
+<p><i class="fa fa-home" style="color:blue"></i> 기존 13개소 (2022-2024)</p>
+<p><i class="fa fa-exclamation-triangle" style="color:orange"></i> EDA 지속취약 (2022-2025)</p>
+<p><i class="fa fa-star" style="color:red"></i> 신규 TOP 15</p>
+<p style="font-size:11px; color:grey;">
+원: 500m 커버리지<br>
+점선: 지속 관찰 필요
+</p>
+</div>
+    
+            <div class="folium-map" id="map_f4d1391e772b3e1eceded98552218a2f" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_f4d1391e772b3e1eceded98552218a2f = L.map(
+                "map_f4d1391e772b3e1eceded98552218a2f",
+                {
+                    center: [37.55, 126.98],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_4b3934b890c291535095d9f08d3d5e4a = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_4b3934b890c291535095d9f08d3d5e4a.addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var marker_02113aa595bc408c7f2162e86132efd6 = L.marker(
+                [37.6101, 126.9183],
+                {
+}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var icon_c5550449c43dc5b7ee504643f0e038c6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3ff603b67aa95fa1eecc4e8f06b1b113 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d83bd13c768248780c6fe03f5731d969 = $(`<div id="html_d83bd13c768248780c6fe03f5731d969" style="width: 100.0%; height: 100.0%;">         <b>🏢 은평 모아센터</b><br>         행정동: 응암3동<br>         개소연도: 2022<br>         E-MCI: 0.6498<br>         순위: 9위<br>         상위30%: ✅         </div>`)[0];
+                popup_3ff603b67aa95fa1eecc4e8f06b1b113.setContent(html_d83bd13c768248780c6fe03f5731d969);
+            
+        
+
+        marker_02113aa595bc408c7f2162e86132efd6.bindPopup(popup_3ff603b67aa95fa1eecc4e8f06b1b113)
+        ;
+
+        
+    
+    
+            marker_02113aa595bc408c7f2162e86132efd6.bindTooltip(
+                `<div>
+                     기존: 은평 모아센터
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_02113aa595bc408c7f2162e86132efd6.setIcon(icon_c5550449c43dc5b7ee504643f0e038c6);
+            
+    
+            var circle_8c5fc823b9a35d5ba7a9039165caa95c = L.circle(
+                [37.6101, 126.9183],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 1}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var marker_0d920de074cd06ba6a9a10cf7d2f1f72 = L.marker(
+                [37.6477, 127.0254],
+                {
+}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var icon_fa34559dbcfe0d9f0ad1c08ad91b13d2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_abb73ee259f58f35cc3307a6588f535c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1dcee62bc4c93fd12c97ff61ed495e2c = $(`<div id="html_1dcee62bc4c93fd12c97ff61ed495e2c" style="width: 100.0%; height: 100.0%;">         <b>🏢 강북 모아센터</b><br>         행정동: 수유1동<br>         개소연도: 2022<br>         E-MCI: 0.6244<br>         순위: 16위<br>         상위30%: ✅         </div>`)[0];
+                popup_abb73ee259f58f35cc3307a6588f535c.setContent(html_1dcee62bc4c93fd12c97ff61ed495e2c);
+            
+        
+
+        marker_0d920de074cd06ba6a9a10cf7d2f1f72.bindPopup(popup_abb73ee259f58f35cc3307a6588f535c)
+        ;
+
+        
+    
+    
+            marker_0d920de074cd06ba6a9a10cf7d2f1f72.bindTooltip(
+                `<div>
+                     기존: 강북 모아센터
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0d920de074cd06ba6a9a10cf7d2f1f72.setIcon(icon_fa34559dbcfe0d9f0ad1c08ad91b13d2);
+            
+    
+            var circle_e8e4e3477ac88a315729e56d2ef17326 = L.circle(
+                [37.6477, 127.0254],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 1}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var marker_19bef80b151eee53208097e7ba6ab8d3 = L.marker(
+                [37.6687, 127.0473],
+                {
+}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var icon_41ed2e1a097fda84f0fdcfcc5204fac2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f0f3e0697c96bc2de016955390420ff2 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_bc2a484a4299095eff4922016c462733 = $(`<div id="html_bc2a484a4299095eff4922016c462733" style="width: 100.0%; height: 100.0%;">         <b>🏢 도봉 모아센터</b><br>         행정동: 도봉2동<br>         개소연도: 2022<br>         E-MCI: 0.4147<br>         순위: 262위<br>         상위30%: ❌         </div>`)[0];
+                popup_f0f3e0697c96bc2de016955390420ff2.setContent(html_bc2a484a4299095eff4922016c462733);
+            
+        
+
+        marker_19bef80b151eee53208097e7ba6ab8d3.bindPopup(popup_f0f3e0697c96bc2de016955390420ff2)
+        ;
+
+        
+    
+    
+            marker_19bef80b151eee53208097e7ba6ab8d3.bindTooltip(
+                `<div>
+                     기존: 도봉 모아센터
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_19bef80b151eee53208097e7ba6ab8d3.setIcon(icon_41ed2e1a097fda84f0fdcfcc5204fac2);
+            
+    
+            var circle_d0eda05b373cd083b89ab86ea3b848be = L.circle(
+                [37.6687, 127.0473],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 1}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var marker_258a7f773ece0319189be173fd207e85 = L.marker(
+                [37.5621, 127.0417],
+                {
+}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var icon_03fa22777b2a36428717d24ec0b8bf62 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_81e7bf4ef5d13eebeb1aaf9c1fa08bf7 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_17f12d6d34c628d5b5e00d7768dc026c = $(`<div id="html_17f12d6d34c628d5b5e00d7768dc026c" style="width: 100.0%; height: 100.0%;">         <b>🏢 성동 모아센터</b><br>         행정동: 다산동<br>         개소연도: 2023<br>         E-MCI: 0.5096<br>         순위: 118위<br>         상위30%: ✅         </div>`)[0];
+                popup_81e7bf4ef5d13eebeb1aaf9c1fa08bf7.setContent(html_17f12d6d34c628d5b5e00d7768dc026c);
+            
+        
+
+        marker_258a7f773ece0319189be173fd207e85.bindPopup(popup_81e7bf4ef5d13eebeb1aaf9c1fa08bf7)
+        ;
+
+        
+    
+    
+            marker_258a7f773ece0319189be173fd207e85.bindTooltip(
+                `<div>
+                     기존: 성동 모아센터
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_258a7f773ece0319189be173fd207e85.setIcon(icon_03fa22777b2a36428717d24ec0b8bf62);
+            
+    
+            var circle_0b3c7c8b0489debedf1c116599ae9ff4 = L.circle(
+                [37.5621, 127.0417],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 1}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var marker_8db4bb13d0b197b2b17abb2585277acd = L.marker(
+                [37.6104, 127.0673],
+                {
+}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var icon_2b2e5f74bad9289af0593220619ab41c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_41c1856598dec3c1b2435d1238cd875a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_dcc2c9704c1ad358889b6da428720d5b = $(`<div id="html_dcc2c9704c1ad358889b6da428720d5b" style="width: 100.0%; height: 100.0%;">         <b>🏢 성북 모아센터</b><br>         행정동: 석관동<br>         개소연도: 2023<br>         E-MCI: 0.5101<br>         순위: 116위<br>         상위30%: ✅         </div>`)[0];
+                popup_41c1856598dec3c1b2435d1238cd875a.setContent(html_dcc2c9704c1ad358889b6da428720d5b);
+            
+        
+
+        marker_8db4bb13d0b197b2b17abb2585277acd.bindPopup(popup_41c1856598dec3c1b2435d1238cd875a)
+        ;
+
+        
+    
+    
+            marker_8db4bb13d0b197b2b17abb2585277acd.bindTooltip(
+                `<div>
+                     기존: 성북 모아센터
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8db4bb13d0b197b2b17abb2585277acd.setIcon(icon_2b2e5f74bad9289af0593220619ab41c);
+            
+    
+            var circle_bb41e3157ae38398b92bd7d4390afcbb = L.circle(
+                [37.6104, 127.0673],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 1}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var marker_2e4a134a48fedf3749acd78abefbc15c = L.marker(
+                [37.6044, 127.0253],
+                {
+}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var icon_357c4a6e65abcc91fd255a018e46aab2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a24b1213d24d8986b502ec37513ceb83 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_3f3a44fa82904f5cd1b3e52b0206a3e6 = $(`<div id="html_3f3a44fa82904f5cd1b3e52b0206a3e6" style="width: 100.0%; height: 100.0%;">         <b>🏢 성북2 모아센터</b><br>         행정동: 길음1동<br>         개소연도: 2023<br>         E-MCI: 0.4120<br>         순위: 270위<br>         상위30%: ❌         </div>`)[0];
+                popup_a24b1213d24d8986b502ec37513ceb83.setContent(html_3f3a44fa82904f5cd1b3e52b0206a3e6);
+            
+        
+
+        marker_2e4a134a48fedf3749acd78abefbc15c.bindPopup(popup_a24b1213d24d8986b502ec37513ceb83)
+        ;
+
+        
+    
+    
+            marker_2e4a134a48fedf3749acd78abefbc15c.bindTooltip(
+                `<div>
+                     기존: 성북2 모아센터
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2e4a134a48fedf3749acd78abefbc15c.setIcon(icon_357c4a6e65abcc91fd255a018e46aab2);
+            
+    
+            var circle_1c01ffbf4419654f5978dbcc989c7dc7 = L.circle(
+                [37.6044, 127.0253],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 1}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var marker_5af2c7c0a96cc84559f9139b15db9e63 = L.marker(
+                [37.6363, 126.9165],
+                {
+}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var icon_3f2d7f9cfdac4ec513cf9e5bde68216a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_335e5332ce02c189b2f9e3d40dff33e4 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6faef78079ad5167606478b85fb5102e = $(`<div id="html_6faef78079ad5167606478b85fb5102e" style="width: 100.0%; height: 100.0%;">         <b>🏢 은평2 모아센터</b><br>         행정동: 구파발동<br>         개소연도: 2023<br>         E-MCI: nan<br>         순위: nan위<br>         상위30%: ❌         </div>`)[0];
+                popup_335e5332ce02c189b2f9e3d40dff33e4.setContent(html_6faef78079ad5167606478b85fb5102e);
+            
+        
+
+        marker_5af2c7c0a96cc84559f9139b15db9e63.bindPopup(popup_335e5332ce02c189b2f9e3d40dff33e4)
+        ;
+
+        
+    
+    
+            marker_5af2c7c0a96cc84559f9139b15db9e63.bindTooltip(
+                `<div>
+                     기존: 은평2 모아센터
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5af2c7c0a96cc84559f9139b15db9e63.setIcon(icon_3f2d7f9cfdac4ec513cf9e5bde68216a);
+            
+    
+            var circle_c6480dbc9f963c5847a57623bcb185b4 = L.circle(
+                [37.6363, 126.9165],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 1}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var marker_9a5ea1e0d493403dd361927f3386250e = L.marker(
+                [37.6107, 126.9296],
+                {
+}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var icon_5014155065696c4609aaedaf64dd5979 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1df899e1ec2e6b26abc72476c5650275 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_bb964495b0066234c8da8e50cc129bf9 = $(`<div id="html_bb964495b0066234c8da8e50cc129bf9" style="width: 100.0%; height: 100.0%;">         <b>🏢 은평3 모아센터</b><br>         행정동: 불광2동<br>         개소연도: 2023<br>         E-MCI: 0.5896<br>         순위: 35위<br>         상위30%: ✅         </div>`)[0];
+                popup_1df899e1ec2e6b26abc72476c5650275.setContent(html_bb964495b0066234c8da8e50cc129bf9);
+            
+        
+
+        marker_9a5ea1e0d493403dd361927f3386250e.bindPopup(popup_1df899e1ec2e6b26abc72476c5650275)
+        ;
+
+        
+    
+    
+            marker_9a5ea1e0d493403dd361927f3386250e.bindTooltip(
+                `<div>
+                     기존: 은평3 모아센터
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9a5ea1e0d493403dd361927f3386250e.setIcon(icon_5014155065696c4609aaedaf64dd5979);
+            
+    
+            var circle_72654778fcccbb8e282fedec70361a1a = L.circle(
+                [37.6107, 126.9296],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 1}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var marker_471d0b7d7e67131fd2e4ba311e4e54c2 = L.marker(
+                [37.5996, 126.9295],
+                {
+}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var icon_a7c1bde2dec852be4dc2eaeb0dfda6de = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_eb812b72ec67a7101b5cbaa4196288fe = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_28d92d279a0566ff902fa1c1e69b5d3c = $(`<div id="html_28d92d279a0566ff902fa1c1e69b5d3c" style="width: 100.0%; height: 100.0%;">         <b>🏢 은평4 모아센터</b><br>         행정동: 녹번동<br>         개소연도: 2023<br>         E-MCI: 0.4919<br>         순위: 146위<br>         상위30%: ❌         </div>`)[0];
+                popup_eb812b72ec67a7101b5cbaa4196288fe.setContent(html_28d92d279a0566ff902fa1c1e69b5d3c);
+            
+        
+
+        marker_471d0b7d7e67131fd2e4ba311e4e54c2.bindPopup(popup_eb812b72ec67a7101b5cbaa4196288fe)
+        ;
+
+        
+    
+    
+            marker_471d0b7d7e67131fd2e4ba311e4e54c2.bindTooltip(
+                `<div>
+                     기존: 은평4 모아센터
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_471d0b7d7e67131fd2e4ba311e4e54c2.setIcon(icon_a7c1bde2dec852be4dc2eaeb0dfda6de);
+            
+    
+            var circle_badc356c29d8679fdc186575f842be39 = L.circle(
+                [37.5996, 126.9295],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 1}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var marker_a41d198730a06812fdea6da5f41fc8b1 = L.marker(
+                [37.6021, 126.9137],
+                {
+}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var icon_cc44f177c260b091408e12a44df60945 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8bd92655e9fe2822d70982eebdb70bc2 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_8133e540350e8d6a2ec10501f61a7e80 = $(`<div id="html_8133e540350e8d6a2ec10501f61a7e80" style="width: 100.0%; height: 100.0%;">         <b>🏢 은평5 모아센터</b><br>         행정동: 응암1동<br>         개소연도: 2023<br>         E-MCI: 0.4912<br>         순위: 148위<br>         상위30%: ❌         </div>`)[0];
+                popup_8bd92655e9fe2822d70982eebdb70bc2.setContent(html_8133e540350e8d6a2ec10501f61a7e80);
+            
+        
+
+        marker_a41d198730a06812fdea6da5f41fc8b1.bindPopup(popup_8bd92655e9fe2822d70982eebdb70bc2)
+        ;
+
+        
+    
+    
+            marker_a41d198730a06812fdea6da5f41fc8b1.bindTooltip(
+                `<div>
+                     기존: 은평5 모아센터
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a41d198730a06812fdea6da5f41fc8b1.setIcon(icon_cc44f177c260b091408e12a44df60945);
+            
+    
+            var circle_bed337e56f168021735c663d6e2663ca = L.circle(
+                [37.6021, 126.9137],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 1}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var marker_d46a9b3a1d1093edef5dd479fcf77785 = L.marker(
+                [37.6153, 127.03],
+                {
+}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var icon_d08d2c3054c3f0164c980aa82adb15ab = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4bed42b957d2cdec98af5aac50011030 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_9315d0737ca580501d65d1d83c7a956c = $(`<div id="html_9315d0737ca580501d65d1d83c7a956c" style="width: 100.0%; height: 100.0%;">         <b>🏢 강북2 모아센터</b><br>         행정동: 미아동<br>         개소연도: 2024<br>         E-MCI: 0.6203<br>         순위: 19위<br>         상위30%: ✅         </div>`)[0];
+                popup_4bed42b957d2cdec98af5aac50011030.setContent(html_9315d0737ca580501d65d1d83c7a956c);
+            
+        
+
+        marker_d46a9b3a1d1093edef5dd479fcf77785.bindPopup(popup_4bed42b957d2cdec98af5aac50011030)
+        ;
+
+        
+    
+    
+            marker_d46a9b3a1d1093edef5dd479fcf77785.bindTooltip(
+                `<div>
+                     기존: 강북2 모아센터
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d46a9b3a1d1093edef5dd479fcf77785.setIcon(icon_d08d2c3054c3f0164c980aa82adb15ab);
+            
+    
+            var circle_409d9c0cd5c384b87e06dc6ce5b18af9 = L.circle(
+                [37.6153, 127.03],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 1}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var marker_1312bd71a2bfbac249e4c513b0674a88 = L.marker(
+                [37.6504, 127.0338],
+                {
+}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var icon_63ac2a9b8cd46c8d4f63672a0d923032 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f51fd6aade9ab8bf65db7185e46a9c54 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b46cc0b88c0a04a9b38fd797665d72fc = $(`<div id="html_b46cc0b88c0a04a9b38fd797665d72fc" style="width: 100.0%; height: 100.0%;">         <b>🏢 강북3 모아센터</b><br>         행정동: 쌍문3동<br>         개소연도: 2024<br>         E-MCI: 0.5543<br>         순위: 64위<br>         상위30%: ✅         </div>`)[0];
+                popup_f51fd6aade9ab8bf65db7185e46a9c54.setContent(html_b46cc0b88c0a04a9b38fd797665d72fc);
+            
+        
+
+        marker_1312bd71a2bfbac249e4c513b0674a88.bindPopup(popup_f51fd6aade9ab8bf65db7185e46a9c54)
+        ;
+
+        
+    
+    
+            marker_1312bd71a2bfbac249e4c513b0674a88.bindTooltip(
+                `<div>
+                     기존: 강북3 모아센터
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1312bd71a2bfbac249e4c513b0674a88.setIcon(icon_63ac2a9b8cd46c8d4f63672a0d923032);
+            
+    
+            var circle_8a8b909302b19acc8c77cb1c820c0d31 = L.circle(
+                [37.6504, 127.0338],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 1}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var marker_3f7835b592b78b62ba1b5233d47a774f = L.marker(
+                [37.6361, 127.0351],
+                {
+}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var icon_7434bd6789636713550551a7eba838dc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f3ca58e73af83756fdc7e82d68cfc456 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d0eff4cda5a6ac87c84023d2ab20dd6b = $(`<div id="html_d0eff4cda5a6ac87c84023d2ab20dd6b" style="width: 100.0%; height: 100.0%;">         <b>🏢 성북3 모아센터</b><br>         행정동: 번3동<br>         개소연도: 2024<br>         E-MCI: 0.6039<br>         순위: 25위<br>         상위30%: ✅         </div>`)[0];
+                popup_f3ca58e73af83756fdc7e82d68cfc456.setContent(html_d0eff4cda5a6ac87c84023d2ab20dd6b);
+            
+        
+
+        marker_3f7835b592b78b62ba1b5233d47a774f.bindPopup(popup_f3ca58e73af83756fdc7e82d68cfc456)
+        ;
+
+        
+    
+    
+            marker_3f7835b592b78b62ba1b5233d47a774f.bindTooltip(
+                `<div>
+                     기존: 성북3 모아센터
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3f7835b592b78b62ba1b5233d47a774f.setIcon(icon_7434bd6789636713550551a7eba838dc);
+            
+    
+            var circle_d093108fbf4fabe0589014b6a892809a = L.circle(
+                [37.6361, 127.0351],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 1}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var marker_216eed8ec75cfdd495510635e6a6bdec = L.marker(
+                [37.6512, 127.0187],
+                {
+}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var icon_49a3d5c6b4202fcb7fdd299e68a44100 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b57b0221cd8da17c968450b97b8ecf64 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ae3afacff1102fb5645546cdfba2d7ca = $(`<div id="html_ae3afacff1102fb5645546cdfba2d7ca" style="width: 100.0%; height: 100.0%;">         <b>⚠️ EDA 발견 지속취약지역</b><br>         행정동: 수유3동<br>         발견근거: 매년 상위10%<br>         E-MCI: 0.6219<br>         전체순위: 18위         </div>`)[0];
+                popup_b57b0221cd8da17c968450b97b8ecf64.setContent(html_ae3afacff1102fb5645546cdfba2d7ca);
+            
+        
+
+        marker_216eed8ec75cfdd495510635e6a6bdec.bindPopup(popup_b57b0221cd8da17c968450b97b8ecf64)
+        ;
+
+        
+    
+    
+            marker_216eed8ec75cfdd495510635e6a6bdec.bindTooltip(
+                `<div>
+                     EDA 발견: 수유3동
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_216eed8ec75cfdd495510635e6a6bdec.setIcon(icon_49a3d5c6b4202fcb7fdd299e68a44100);
+            
+    
+            var circle_d9d3e18aa7b95d5a15e045f70a39a4d9 = L.circle(
+                [37.6512, 127.0187],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": "5, 5", "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 600, "stroke": true, "weight": 2}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var marker_db3f1c5f30bc68ec64659a89e3613477 = L.marker(
+                [37.6567, 127.045],
+                {
+}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var icon_94282e308f0effbf41e052e7507b1828 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_818d2890fbf6591fa648ffede82fe221 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ce60ceb23a655e09e2400485c1967509 = $(`<div id="html_ce60ceb23a655e09e2400485c1967509" style="width: 100.0%; height: 100.0%;">         <b>⚠️ EDA 발견 지속취약지역</b><br>         행정동: 창2동<br>         발견근거: 매년 상위10%<br>         E-MCI: 0.4571<br>         전체순위: 211위         </div>`)[0];
+                popup_818d2890fbf6591fa648ffede82fe221.setContent(html_ce60ceb23a655e09e2400485c1967509);
+            
+        
+
+        marker_db3f1c5f30bc68ec64659a89e3613477.bindPopup(popup_818d2890fbf6591fa648ffede82fe221)
+        ;
+
+        
+    
+    
+            marker_db3f1c5f30bc68ec64659a89e3613477.bindTooltip(
+                `<div>
+                     EDA 발견: 창2동
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_db3f1c5f30bc68ec64659a89e3613477.setIcon(icon_94282e308f0effbf41e052e7507b1828);
+            
+    
+            var circle_667b5ab371f45f7f901a4342a4bec16e = L.circle(
+                [37.6567, 127.045],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": "5, 5", "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 600, "stroke": true, "weight": 2}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var marker_b04ba4f0fc5a7a57595a4a159b336cbd = L.marker(
+                [37.6512, 127.0781],
+                {
+}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var icon_99478cc2044c592b39c64e40b5199cef = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6f0dad83a7e8739825a0646c126a5e1d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_7253ef71977b895022d81c0c2e0d6381 = $(`<div id="html_7253ef71977b895022d81c0c2e0d6381" style="width: 100.0%; height: 100.0%;">         <b>⚠️ EDA 발견 지속취약지역</b><br>         행정동: 중계2동<br>         발견근거: 매년 상위10%<br>         E-MCI: nan<br>         전체순위: nan위         </div>`)[0];
+                popup_6f0dad83a7e8739825a0646c126a5e1d.setContent(html_7253ef71977b895022d81c0c2e0d6381);
+            
+        
+
+        marker_b04ba4f0fc5a7a57595a4a159b336cbd.bindPopup(popup_6f0dad83a7e8739825a0646c126a5e1d)
+        ;
+
+        
+    
+    
+            marker_b04ba4f0fc5a7a57595a4a159b336cbd.bindTooltip(
+                `<div>
+                     EDA 발견: 중계2동
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b04ba4f0fc5a7a57595a4a159b336cbd.setIcon(icon_99478cc2044c592b39c64e40b5199cef);
+            
+    
+            var circle_4b6418aaaba05c41680e8c6efab9d4fb = L.circle(
+                [37.6512, 127.0781],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": "5, 5", "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 600, "stroke": true, "weight": 2}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var marker_8653fbb786f50a5a1870094950b15a48 = L.marker(
+                [37.6448, 127.0729],
+                {
+}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var icon_0c8dc25287c739a00befb30954497359 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0c0b96aa2342d374d60f86f03779c535 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_8bea7c072322775e1898d8afa646e8e6 = $(`<div id="html_8bea7c072322775e1898d8afa646e8e6" style="width: 100.0%; height: 100.0%;">         <b>⚠️ EDA 발견 지속취약지역</b><br>         행정동: 중계3동<br>         발견근거: 매년 상위10%<br>         E-MCI: nan<br>         전체순위: nan위         </div>`)[0];
+                popup_0c0b96aa2342d374d60f86f03779c535.setContent(html_8bea7c072322775e1898d8afa646e8e6);
+            
+        
+
+        marker_8653fbb786f50a5a1870094950b15a48.bindPopup(popup_0c0b96aa2342d374d60f86f03779c535)
+        ;
+
+        
+    
+    
+            marker_8653fbb786f50a5a1870094950b15a48.bindTooltip(
+                `<div>
+                     EDA 발견: 중계3동
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8653fbb786f50a5a1870094950b15a48.setIcon(icon_0c8dc25287c739a00befb30954497359);
+            
+    
+            var circle_0e03fb594d3230bc3c5976df66b8283a = L.circle(
+                [37.6448, 127.0729],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": "5, 5", "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 600, "stroke": true, "weight": 2}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var marker_36690b6d07f56c23aaaa394b65039692 = L.marker(
+                [37.6001, 127.094],
+                {
+}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var icon_105220bdf133cf8c156860754b768b19 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_332a7a33ec01065b5d07292109b3f423 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_97156e7f6ae5b1575639ef3821fa787a = $(`<div id="html_97156e7f6ae5b1575639ef3821fa787a" style="width: 100.0%; height: 100.0%;">         <b>⚠️ EDA 발견 지속취약지역</b><br>         행정동: 망우3동<br>         발견근거: 매년 상위10%<br>         E-MCI: 0.5785<br>         전체순위: 47위         </div>`)[0];
+                popup_332a7a33ec01065b5d07292109b3f423.setContent(html_97156e7f6ae5b1575639ef3821fa787a);
+            
+        
+
+        marker_36690b6d07f56c23aaaa394b65039692.bindPopup(popup_332a7a33ec01065b5d07292109b3f423)
+        ;
+
+        
+    
+    
+            marker_36690b6d07f56c23aaaa394b65039692.bindTooltip(
+                `<div>
+                     EDA 발견: 망우3동
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_36690b6d07f56c23aaaa394b65039692.setIcon(icon_105220bdf133cf8c156860754b768b19);
+            
+    
+            var circle_320e8b5306a4321da2b7e204abd3715a = L.circle(
+                [37.6001, 127.094],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": "5, 5", "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 600, "stroke": true, "weight": 2}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var marker_a9be4a05303d0c515221c39fa14fdf33 = L.marker(
+                [37.5981, 127.0869],
+                {
+}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var icon_7f306c231e9b0c210db2f2b6d3897375 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c166bc4f353f2d2632837b29d3b15949 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_dfc6fc2eb7acf19df5e5d044eeaa6b41 = $(`<div id="html_dfc6fc2eb7acf19df5e5d044eeaa6b41" style="width: 100.0%; height: 100.0%;">         <b>⚠️ EDA 발견 지속취약지역</b><br>         행정동: 중화2동<br>         발견근거: 2022 TOP1<br>         E-MCI: 0.5909<br>         전체순위: 33위         </div>`)[0];
+                popup_c166bc4f353f2d2632837b29d3b15949.setContent(html_dfc6fc2eb7acf19df5e5d044eeaa6b41);
+            
+        
+
+        marker_a9be4a05303d0c515221c39fa14fdf33.bindPopup(popup_c166bc4f353f2d2632837b29d3b15949)
+        ;
+
+        
+    
+    
+            marker_a9be4a05303d0c515221c39fa14fdf33.bindTooltip(
+                `<div>
+                     EDA 발견: 중화2동
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a9be4a05303d0c515221c39fa14fdf33.setIcon(icon_7f306c231e9b0c210db2f2b6d3897375);
+            
+    
+            var circle_1c92165ff27b7f67d87af42c99e7cfa5 = L.circle(
+                [37.5981, 127.0869],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": "5, 5", "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 600, "stroke": true, "weight": 2}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var marker_01821bb6879bde1c814fa3abb99de343 = L.marker(
+                [37.5617, 126.8551],
+                {
+}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var icon_70af8402bd83df5ac61ff1ff8c6358b8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_329f204d561efa7d0102e7f63b98f121 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_fb5d1edbf1fbb3ea4fe031914bc46daf = $(`<div id="html_fb5d1edbf1fbb3ea4fe031914bc46daf" style="width: 100.0%; height: 100.0%;">         <b>⚠️ EDA 발견 지속취약지역</b><br>         행정동: 가양3동<br>         발견근거: 2025 TOP1<br>         E-MCI: 0.5828<br>         전체순위: 42위         </div>`)[0];
+                popup_329f204d561efa7d0102e7f63b98f121.setContent(html_fb5d1edbf1fbb3ea4fe031914bc46daf);
+            
+        
+
+        marker_01821bb6879bde1c814fa3abb99de343.bindPopup(popup_329f204d561efa7d0102e7f63b98f121)
+        ;
+
+        
+    
+    
+            marker_01821bb6879bde1c814fa3abb99de343.bindTooltip(
+                `<div>
+                     EDA 발견: 가양3동
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_01821bb6879bde1c814fa3abb99de343.setIcon(icon_70af8402bd83df5ac61ff1ff8c6358b8);
+            
+    
+            var circle_1abcc00474dd300993b76cf9f52c6f39 = L.circle(
+                [37.5617, 126.8551],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": "5, 5", "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 600, "stroke": true, "weight": 2}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var marker_0ba0225f600c524ffd7cf570c709b2b5 = L.marker(
+                [37.6139, 127.0227],
+                {
+}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var icon_ca64c0c9b0498c2b27fe17bb684d71b3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_18cd1c211505d8ce5da171a3984dfe7d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_10e3caf74390c5894e00d6da72d36f01 = $(`<div id="html_10e3caf74390c5894e00d6da72d36f01" style="width: 100.0%; height: 100.0%;">         <b>⚠️ EDA 발견 지속취약지역</b><br>         행정동: 송천동<br>         발견근거: 고위험안정형<br>         E-MCI: 0.6430<br>         전체순위: 12위         </div>`)[0];
+                popup_18cd1c211505d8ce5da171a3984dfe7d.setContent(html_10e3caf74390c5894e00d6da72d36f01);
+            
+        
+
+        marker_0ba0225f600c524ffd7cf570c709b2b5.bindPopup(popup_18cd1c211505d8ce5da171a3984dfe7d)
+        ;
+
+        
+    
+    
+            marker_0ba0225f600c524ffd7cf570c709b2b5.bindTooltip(
+                `<div>
+                     EDA 발견: 송천동
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0ba0225f600c524ffd7cf570c709b2b5.setIcon(icon_ca64c0c9b0498c2b27fe17bb684d71b3);
+            
+    
+            var circle_2ddae8c5638df9112e2356803994f140 = L.circle(
+                [37.6139, 127.0227],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": "5, 5", "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 600, "stroke": true, "weight": 2}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var marker_671c2f5e5bb90fcd83bdc71307c3e87d = L.marker(
+                [37.6271, 127.0118],
+                {
+}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var icon_0d8fed6e06cfe9ee158f29bf465188f4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8e36045493abfb7a4efa3ef1b984bc10 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_93bd1a75345d8bdd5cb431eb0cf2618c = $(`<div id="html_93bd1a75345d8bdd5cb431eb0cf2618c" style="width: 100.0%; height: 100.0%;">         <b>⚠️ EDA 발견 지속취약지역</b><br>         행정동: 삼양동<br>         발견근거: 고위험안정형<br>         E-MCI: 0.5138<br>         전체순위: 109위         </div>`)[0];
+                popup_8e36045493abfb7a4efa3ef1b984bc10.setContent(html_93bd1a75345d8bdd5cb431eb0cf2618c);
+            
+        
+
+        marker_671c2f5e5bb90fcd83bdc71307c3e87d.bindPopup(popup_8e36045493abfb7a4efa3ef1b984bc10)
+        ;
+
+        
+    
+    
+            marker_671c2f5e5bb90fcd83bdc71307c3e87d.bindTooltip(
+                `<div>
+                     EDA 발견: 삼양동
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_671c2f5e5bb90fcd83bdc71307c3e87d.setIcon(icon_0d8fed6e06cfe9ee158f29bf465188f4);
+            
+    
+            var circle_aecf5124de927e36a22432e9a6443d76 = L.circle(
+                [37.6271, 127.0118],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": "5, 5", "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 600, "stroke": true, "weight": 2}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var marker_696daca94ede667ef27fb651de469c2b = L.marker(
+                [37.5851, 127.0892],
+                {
+}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var icon_1371d95b39ab453c705dbf13e4993787 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ad54bd17711190e547bb3031b5294c6a = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_229815b642867d3eba382b3d621c90bc = $(`<div id="html_229815b642867d3eba382b3d621c90bc" style="width: 100.0%; height: 100.0%;">         <b>⚠️ EDA 발견 지속취약지역</b><br>         행정동: 면목4동<br>         발견근거: 고위험안정형<br>         E-MCI: 0.5039<br>         전체순위: 129위         </div>`)[0];
+                popup_ad54bd17711190e547bb3031b5294c6a.setContent(html_229815b642867d3eba382b3d621c90bc);
+            
+        
+
+        marker_696daca94ede667ef27fb651de469c2b.bindPopup(popup_ad54bd17711190e547bb3031b5294c6a)
+        ;
+
+        
+    
+    
+            marker_696daca94ede667ef27fb651de469c2b.bindTooltip(
+                `<div>
+                     EDA 발견: 면목4동
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_696daca94ede667ef27fb651de469c2b.setIcon(icon_1371d95b39ab453c705dbf13e4993787);
+            
+    
+            var circle_b95b86568d62dd89aad4764e3bfe3597 = L.circle(
+                [37.5851, 127.0892],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": "5, 5", "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 600, "stroke": true, "weight": 2}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var marker_9525b22b5855c38785c825eed8b21eae = L.marker(
+                [37.5264, 126.8551],
+                {
+}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var icon_981e3992f674385f00f48fd003aaf7bd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5820edc2c9ef0c7f098ba72a190692e2 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_a8581a61bf854e3c4366a09dc357388d = $(`<div id="html_a8581a61bf854e3c4366a09dc357388d" style="width: 100.0%; height: 100.0%;">         <b>⚠️ EDA 발견 지속취약지역</b><br>         행정동: 신정3동<br>         발견근거: TOP15 반복<br>         E-MCI: 0.3428<br>         전체순위: 336위         </div>`)[0];
+                popup_5820edc2c9ef0c7f098ba72a190692e2.setContent(html_a8581a61bf854e3c4366a09dc357388d);
+            
+        
+
+        marker_9525b22b5855c38785c825eed8b21eae.bindPopup(popup_5820edc2c9ef0c7f098ba72a190692e2)
+        ;
+
+        
+    
+    
+            marker_9525b22b5855c38785c825eed8b21eae.bindTooltip(
+                `<div>
+                     EDA 발견: 신정3동
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9525b22b5855c38785c825eed8b21eae.setIcon(icon_981e3992f674385f00f48fd003aaf7bd);
+            
+    
+            var circle_2daa5dbf5e028ccd3700f1c4095c8b64 = L.circle(
+                [37.5264, 126.8551],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": "5, 5", "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 600, "stroke": true, "weight": 2}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var marker_0f242ddfac4d3200f7f016a093c58a40 = L.marker(
+                [37.5976, 127.0869],
+                {
+}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var icon_3a48a2ac20a65e55a47b444e421ce819 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7e0057a715e94071479c8079c0a131d0 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_9438033c8c56671491d1830dbc17afc5 = $(`<div id="html_9438033c8c56671491d1830dbc17afc5" style="width: 100.0%; height: 100.0%;">         <b>⚠️ EDA 발견 지속취약지역</b><br>         행정동: 상봉2동<br>         발견근거: TOP15 반복<br>         E-MCI: 0.5457<br>         전체순위: 71위         </div>`)[0];
+                popup_7e0057a715e94071479c8079c0a131d0.setContent(html_9438033c8c56671491d1830dbc17afc5);
+            
+        
+
+        marker_0f242ddfac4d3200f7f016a093c58a40.bindPopup(popup_7e0057a715e94071479c8079c0a131d0)
+        ;
+
+        
+    
+    
+            marker_0f242ddfac4d3200f7f016a093c58a40.bindTooltip(
+                `<div>
+                     EDA 발견: 상봉2동
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0f242ddfac4d3200f7f016a093c58a40.setIcon(icon_3a48a2ac20a65e55a47b444e421ce819);
+            
+    
+            var circle_c387d5dbf72160cf3880002ec9dbf86f = L.circle(
+                [37.5976, 127.0869],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": "5, 5", "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 600, "stroke": true, "weight": 2}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var marker_508712b28e28f636a93be8ef993612a9 = L.marker(
+                [37.6254, 127.0732],
+                {
+}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var icon_93883c59a08eb2bd5d94abffada046a2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6e9b9cf2cdc56932fbb8e5e3b5463763 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_37c7c98a48b5420dd3047ff5a203c0b0 = $(`<div id="html_37c7c98a48b5420dd3047ff5a203c0b0" style="width: 100.0%; height: 100.0%;">         <b>⚠️ EDA 발견 지속취약지역</b><br>         행정동: 공릉2동<br>         발견근거: TOP15 반복<br>         E-MCI: 0.3983<br>         전체순위: 287위         </div>`)[0];
+                popup_6e9b9cf2cdc56932fbb8e5e3b5463763.setContent(html_37c7c98a48b5420dd3047ff5a203c0b0);
+            
+        
+
+        marker_508712b28e28f636a93be8ef993612a9.bindPopup(popup_6e9b9cf2cdc56932fbb8e5e3b5463763)
+        ;
+
+        
+    
+    
+            marker_508712b28e28f636a93be8ef993612a9.bindTooltip(
+                `<div>
+                     EDA 발견: 공릉2동
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_508712b28e28f636a93be8ef993612a9.setIcon(icon_93883c59a08eb2bd5d94abffada046a2);
+            
+    
+            var circle_6144b0b087caf5c8c3071486d8e933cb = L.circle(
+                [37.6254, 127.0732],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": "5, 5", "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 600, "stroke": true, "weight": 2}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var marker_17ff4b423efc91bd71ae5ad5d5561848 = L.marker(
+                [37.5659, 127.0867],
+                {
+}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var icon_bf7c93144b1ff7a78a2609cc66f12220 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b9f309dc9124aca968d6e76da50549ff = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_9be9031d6ccb5776925dccb99eedf44f = $(`<div id="html_9be9031d6ccb5776925dccb99eedf44f" style="width: 100.0%; height: 100.0%;">         <b>⚠️ EDA 발견 지속취약지역</b><br>         행정동: 중곡2동<br>         발견근거: TOP15 반복<br>         E-MCI: 0.4966<br>         전체순위: 140위         </div>`)[0];
+                popup_b9f309dc9124aca968d6e76da50549ff.setContent(html_9be9031d6ccb5776925dccb99eedf44f);
+            
+        
+
+        marker_17ff4b423efc91bd71ae5ad5d5561848.bindPopup(popup_b9f309dc9124aca968d6e76da50549ff)
+        ;
+
+        
+    
+    
+            marker_17ff4b423efc91bd71ae5ad5d5561848.bindTooltip(
+                `<div>
+                     EDA 발견: 중곡2동
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_17ff4b423efc91bd71ae5ad5d5561848.setIcon(icon_bf7c93144b1ff7a78a2609cc66f12220);
+            
+    
+            var circle_fc007d6142ef452646038bcc732356a4 = L.circle(
+                [37.5659, 127.0867],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": "5, 5", "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 600, "stroke": true, "weight": 2}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var marker_43f1a963dfe067a833790979eb933d8d = L.marker(
+                [37.6208, 127.0589],
+                {
+}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var icon_5395847a61105ece8228d3707d9c7f72 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "exclamation-triangle",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f2f9d98bddd6a4d62efeb8406c616636 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_f124fb63cf29ac74ed71e5ccf7f50e60 = $(`<div id="html_f124fb63cf29ac74ed71e5ccf7f50e60" style="width: 100.0%; height: 100.0%;">         <b>⚠️ EDA 발견 지속취약지역</b><br>         행정동: 월계3동<br>         발견근거: TOP15 반복<br>         E-MCI: 0.4469<br>         전체순위: 227위         </div>`)[0];
+                popup_f2f9d98bddd6a4d62efeb8406c616636.setContent(html_f124fb63cf29ac74ed71e5ccf7f50e60);
+            
+        
+
+        marker_43f1a963dfe067a833790979eb933d8d.bindPopup(popup_f2f9d98bddd6a4d62efeb8406c616636)
+        ;
+
+        
+    
+    
+            marker_43f1a963dfe067a833790979eb933d8d.bindTooltip(
+                `<div>
+                     EDA 발견: 월계3동
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_43f1a963dfe067a833790979eb933d8d.setIcon(icon_5395847a61105ece8228d3707d9c7f72);
+            
+    
+            var circle_c369776bece6f63ed13530f820f76561 = L.circle(
+                [37.6208, 127.0589],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": "5, 5", "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 600, "stroke": true, "weight": 2}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var marker_3136dd93fc86946a56962b2e631643de = L.marker(
+                [37.5805, 127.0189],
+                {
+}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var icon_b891e0915934d0c7b83bec2921994312 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b4a927ed7a6101a5d860ee57aa01391f = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_10414fb1be86c8cbead88da80dbecfc5 = $(`<div id="html_10414fb1be86c8cbead88da80dbecfc5" style="width: 100.0%; height: 100.0%;">         <b>🆕 신규 후보 2위</b><br>         행정동: 창신2동<br>         E-MCI: 0.6996<br>         전체순위: 2위         </div>`)[0];
+                popup_b4a927ed7a6101a5d860ee57aa01391f.setContent(html_10414fb1be86c8cbead88da80dbecfc5);
+            
+        
+
+        marker_3136dd93fc86946a56962b2e631643de.bindPopup(popup_b4a927ed7a6101a5d860ee57aa01391f)
+        ;
+
+        
+    
+    
+            marker_3136dd93fc86946a56962b2e631643de.bindTooltip(
+                `<div>
+                     신규 2위: 창신2동
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3136dd93fc86946a56962b2e631643de.setIcon(icon_b891e0915934d0c7b83bec2921994312);
+            
+    
+            var circle_8cdcf880dd6604a29424f5ec2f71064f = L.circle(
+                [37.5805, 127.0189],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.15, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 2}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var marker_49741d7c4f7f5bb3db10aea4d45f9ff0 = L.marker(
+                [37.5763, 127.0125],
+                {
+}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var icon_472eacc9b94ec5c8154dc5876b46a8ef = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_42e64318d17837e8b3828a2b87301400 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_0517e5d6f4c613741f8eea44ee2b79b9 = $(`<div id="html_0517e5d6f4c613741f8eea44ee2b79b9" style="width: 100.0%; height: 100.0%;">         <b>🆕 신규 후보 3위</b><br>         행정동: 창신1동<br>         E-MCI: 0.6980<br>         전체순위: 3위         </div>`)[0];
+                popup_42e64318d17837e8b3828a2b87301400.setContent(html_0517e5d6f4c613741f8eea44ee2b79b9);
+            
+        
+
+        marker_49741d7c4f7f5bb3db10aea4d45f9ff0.bindPopup(popup_42e64318d17837e8b3828a2b87301400)
+        ;
+
+        
+    
+    
+            marker_49741d7c4f7f5bb3db10aea4d45f9ff0.bindTooltip(
+                `<div>
+                     신규 3위: 창신1동
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_49741d7c4f7f5bb3db10aea4d45f9ff0.setIcon(icon_472eacc9b94ec5c8154dc5876b46a8ef);
+            
+    
+            var circle_4c65beec9bef83ad72da3f78e0348526 = L.circle(
+                [37.5763, 127.0125],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.15, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 2}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var marker_62282e4631e3241fb2adfe900d0b9598 = L.marker(
+                [37.4814, 126.8823],
+                {
+}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var icon_3f4ebf7facf06a0a0569bcb336f9233d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7da889679d009da4e8f1e67ff33456c7 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_57f1b71a1ed7a0d56611e1736560ea70 = $(`<div id="html_57f1b71a1ed7a0d56611e1736560ea70" style="width: 100.0%; height: 100.0%;">         <b>🆕 신규 후보 4위</b><br>         행정동: 가리봉동<br>         E-MCI: 0.6778<br>         전체순위: 4위         </div>`)[0];
+                popup_7da889679d009da4e8f1e67ff33456c7.setContent(html_57f1b71a1ed7a0d56611e1736560ea70);
+            
+        
+
+        marker_62282e4631e3241fb2adfe900d0b9598.bindPopup(popup_7da889679d009da4e8f1e67ff33456c7)
+        ;
+
+        
+    
+    
+            marker_62282e4631e3241fb2adfe900d0b9598.bindTooltip(
+                `<div>
+                     신규 4위: 가리봉동
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_62282e4631e3241fb2adfe900d0b9598.setIcon(icon_3f4ebf7facf06a0a0569bcb336f9233d);
+            
+    
+            var circle_55a7160fc53d96afc8cb98e8ebbd32b8 = L.circle(
+                [37.4814, 126.8823],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.15, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 2}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var marker_03e041d4f8054fb1fb2e08a8a1a42f2b = L.marker(
+                [37.5776, 127.0246],
+                {
+}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var icon_41d647e25079f00401e36a5284442a61 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8c54667c1fef204ab7934a5a328884a9 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d14426020fc7907d5ca4b75d1afdf78a = $(`<div id="html_d14426020fc7907d5ca4b75d1afdf78a" style="width: 100.0%; height: 100.0%;">         <b>🆕 신규 후보 6위</b><br>         행정동: 숭인2동<br>         E-MCI: 0.6718<br>         전체순위: 6위         </div>`)[0];
+                popup_8c54667c1fef204ab7934a5a328884a9.setContent(html_d14426020fc7907d5ca4b75d1afdf78a);
+            
+        
+
+        marker_03e041d4f8054fb1fb2e08a8a1a42f2b.bindPopup(popup_8c54667c1fef204ab7934a5a328884a9)
+        ;
+
+        
+    
+    
+            marker_03e041d4f8054fb1fb2e08a8a1a42f2b.bindTooltip(
+                `<div>
+                     신규 6위: 숭인2동
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_03e041d4f8054fb1fb2e08a8a1a42f2b.setIcon(icon_41d647e25079f00401e36a5284442a61);
+            
+    
+            var circle_0dce256780fa725360d19134503833f6 = L.circle(
+                [37.5776, 127.0246],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.15, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 2}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var marker_5b70738e305bebbd17595b4a926a5349 = L.marker(
+                [37.5854, 127.0299],
+                {
+}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var icon_24c3ff93ebb010b7910929d33ba245a5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3b8026b7fe50649b45a8a449d4bebfc8 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d02d9394244f5d86d87c78d4e038993c = $(`<div id="html_d02d9394244f5d86d87c78d4e038993c" style="width: 100.0%; height: 100.0%;">         <b>🆕 신규 후보 7위</b><br>         행정동: 안암동<br>         E-MCI: 0.6621<br>         전체순위: 7위         </div>`)[0];
+                popup_3b8026b7fe50649b45a8a449d4bebfc8.setContent(html_d02d9394244f5d86d87c78d4e038993c);
+            
+        
+
+        marker_5b70738e305bebbd17595b4a926a5349.bindPopup(popup_3b8026b7fe50649b45a8a449d4bebfc8)
+        ;
+
+        
+    
+    
+            marker_5b70738e305bebbd17595b4a926a5349.bindTooltip(
+                `<div>
+                     신규 7위: 안암동
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5b70738e305bebbd17595b4a926a5349.setIcon(icon_24c3ff93ebb010b7910929d33ba245a5);
+            
+    
+            var circle_3d88aaed2011a75b4bc8a66b6ece6b8f = L.circle(
+                [37.5854, 127.0299],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.15, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 2}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var marker_ed3306ce2e4fb3f744c86545c0c2ad52 = L.marker(
+                [37.5662, 126.991],
+                {
+}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var icon_ff1c87887c1865f1ef10ae3c311df383 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_450c2f26e92c422320a4c06f12107ad8 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_caa21de471b70a8b80706809bec795c1 = $(`<div id="html_caa21de471b70a8b80706809bec795c1" style="width: 100.0%; height: 100.0%;">         <b>🆕 신규 후보 8위</b><br>         행정동: 을지로동<br>         E-MCI: 0.6577<br>         전체순위: 8위         </div>`)[0];
+                popup_450c2f26e92c422320a4c06f12107ad8.setContent(html_caa21de471b70a8b80706809bec795c1);
+            
+        
+
+        marker_ed3306ce2e4fb3f744c86545c0c2ad52.bindPopup(popup_450c2f26e92c422320a4c06f12107ad8)
+        ;
+
+        
+    
+    
+            marker_ed3306ce2e4fb3f744c86545c0c2ad52.bindTooltip(
+                `<div>
+                     신규 8위: 을지로동
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ed3306ce2e4fb3f744c86545c0c2ad52.setIcon(icon_ff1c87887c1865f1ef10ae3c311df383);
+            
+    
+            var circle_99443d3a94e1d14dfd8751eb6c3394da = L.circle(
+                [37.5662, 126.991],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.15, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 2}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var marker_189f6beac675b71573e73a808f6df064 = L.marker(
+                [37.5652, 126.8478],
+                {
+}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var icon_02fe5c40ab2ba573ee9101ab6c3ed926 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7e9348eaec7be57df4d84a12092c9f34 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_34cdc5234f6687d335959f42af3af64b = $(`<div id="html_34cdc5234f6687d335959f42af3af64b" style="width: 100.0%; height: 100.0%;">         <b>🆕 신규 후보 9위</b><br>         행정동: 가양2동<br>         E-MCI: 0.6484<br>         전체순위: 10위         </div>`)[0];
+                popup_7e9348eaec7be57df4d84a12092c9f34.setContent(html_34cdc5234f6687d335959f42af3af64b);
+            
+        
+
+        marker_189f6beac675b71573e73a808f6df064.bindPopup(popup_7e9348eaec7be57df4d84a12092c9f34)
+        ;
+
+        
+    
+    
+            marker_189f6beac675b71573e73a808f6df064.bindTooltip(
+                `<div>
+                     신규 9위: 가양2동
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_189f6beac675b71573e73a808f6df064.setIcon(icon_02fe5c40ab2ba573ee9101ab6c3ed926);
+            
+    
+            var circle_b228882c5df7dd6764fd1dd717648f06 = L.circle(
+                [37.5652, 126.8478],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.15, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 2}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var marker_49f83faef2db748be34c3d6be0a499c8 = L.marker(
+                [37.5987, 127.0577],
+                {
+}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var icon_9e5034565301dec7dcba3a9cfe422655 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_739836677cc57feb6bb71ebe29454aad = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_dddc6362fd199a105a7d1cd6f709c8e1 = $(`<div id="html_dddc6362fd199a105a7d1cd6f709c8e1" style="width: 100.0%; height: 100.0%;">         <b>🆕 신규 후보 11위</b><br>         행정동: 이문1동<br>         E-MCI: 0.6406<br>         전체순위: 13위         </div>`)[0];
+                popup_739836677cc57feb6bb71ebe29454aad.setContent(html_dddc6362fd199a105a7d1cd6f709c8e1);
+            
+        
+
+        marker_49f83faef2db748be34c3d6be0a499c8.bindPopup(popup_739836677cc57feb6bb71ebe29454aad)
+        ;
+
+        
+    
+    
+            marker_49f83faef2db748be34c3d6be0a499c8.bindTooltip(
+                `<div>
+                     신규 11위: 이문1동
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_49f83faef2db748be34c3d6be0a499c8.setIcon(icon_9e5034565301dec7dcba3a9cfe422655);
+            
+    
+            var circle_d84e29a7d9a3fe16196c8beaf22e33a7 = L.circle(
+                [37.5987, 127.0577],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.15, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 2}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var marker_bc7ec38c6a9d29566d232d4bbe915a09 = L.marker(
+                [37.5845, 126.9832],
+                {
+}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var icon_488f628496683008cdf466f087e293a4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6aa8325f6bba3c784985b03fca6fa2b8 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_ad1d8f3b7d3efb012ec181797d7f391b = $(`<div id="html_ad1d8f3b7d3efb012ec181797d7f391b" style="width: 100.0%; height: 100.0%;">         <b>🆕 신규 후보 12위</b><br>         행정동: 삼청동<br>         E-MCI: 0.6377<br>         전체순위: 14위         </div>`)[0];
+                popup_6aa8325f6bba3c784985b03fca6fa2b8.setContent(html_ad1d8f3b7d3efb012ec181797d7f391b);
+            
+        
+
+        marker_bc7ec38c6a9d29566d232d4bbe915a09.bindPopup(popup_6aa8325f6bba3c784985b03fca6fa2b8)
+        ;
+
+        
+    
+    
+            marker_bc7ec38c6a9d29566d232d4bbe915a09.bindTooltip(
+                `<div>
+                     신규 12위: 삼청동
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_bc7ec38c6a9d29566d232d4bbe915a09.setIcon(icon_488f628496683008cdf466f087e293a4);
+            
+    
+            var circle_61c0cfbee420b1f91cfbd6030140c97d = L.circle(
+                [37.5845, 126.9832],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.15, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 2}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var marker_09ccee772940801a146e0ad36e09c0ac = L.marker(
+                [37.5826, 127.0387],
+                {
+}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+    
+            var icon_1a245f6a4ebc4b28ecf1cc225b9f005a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6c5cf1fee41cdc2b1f50b6344778f541 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_b5d1ebf76a8c8dae2f314f1e83457bef = $(`<div id="html_b5d1ebf76a8c8dae2f314f1e83457bef" style="width: 100.0%; height: 100.0%;">         <b>🆕 신규 후보 13위</b><br>         행정동: 제기동<br>         E-MCI: 0.6276<br>         전체순위: 15위         </div>`)[0];
+                popup_6c5cf1fee41cdc2b1f50b6344778f541.setContent(html_b5d1ebf76a8c8dae2f314f1e83457bef);
+            
+        
+
+        marker_09ccee772940801a146e0ad36e09c0ac.bindPopup(popup_6c5cf1fee41cdc2b1f50b6344778f541)
+        ;
+
+        
+    
+    
+            marker_09ccee772940801a146e0ad36e09c0ac.bindTooltip(
+                `<div>
+                     신규 13위: 제기동
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_09ccee772940801a146e0ad36e09c0ac.setIcon(icon_1a245f6a4ebc4b28ecf1cc225b9f005a);
+            
+    
+            var circle_a452d66b4d37b48ed5551fea573b8516 = L.circle(
+                [37.5826, 127.0387],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.15, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 500, "stroke": true, "weight": 2}
+            ).addTo(map_f4d1391e772b3e1eceded98552218a2f);
+        
+</script>
+</html>

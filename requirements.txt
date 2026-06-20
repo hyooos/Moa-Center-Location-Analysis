@@ -1,0 +1,10 @@
+pandas
+numpy
+geopandas
+shapely
+scipy
+matplotlib
+seaborn
+folium
+koreanize-matplotlib
+jupyter
