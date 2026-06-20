@@ -160,28 +160,36 @@ G --> H["최종 입지 제안<br/>Final Recommendation"]
 .
 ├── README.md
 ├── requirements.txt
-├── data/
+
+├── data/                               # 원천 데이터 및 데이터 구조 설명
 │   └── README.md
+
 ├── docs/
-│   ├── presentation/
-│   ├── report/
-│   └── references/
+│   ├── presentation/                   # 발표 자료
+│   ├── report/                         # 분석 결과 보고서
+│   └── references/                     # 참고 문헌 및 관련 자료
+
 ├── notebooks/
-│   ├── 01_hvi_construction/
-│   ├── 02_policy_demand/
-│   ├── 03_supply_accessibility/
-│   ├── 04_index_integration/
-│   └── 05_validation_visualization/
+│   ├── 01_hvi_construction/            # 주거취약성지수(HVI) 산출
+│   ├── 02_policy_demand/               # 정책 수요 지표 구축
+│   ├── 03_supply_accessibility/        # 공급 공백 및 접근성 분석
+│   ├── 04_index_integration/           # 지표 통합 및 우선순위 산정
+│   └── 05_validation_visualization/    # 결과 검증 및 시각화
+
 ├── src/
-│   ├── 01_candidate_selection/
-│   ├── 02_accessibility_simulation/
-│   └── 03_visualization/
+│   ├── 01_candidate_selection/         # 후보지 선정 로직
+│   ├── 02_accessibility_simulation/    # 접근성 시뮬레이션
+│   └── 03_visualization/               # 지도 및 결과 시각화
+
 ├── assets/
-│   ├── figures/
-│   └── maps/
+│   ├── figures/                        # 분석 결과 이미지
+│   └── maps/                           # 인터랙티브 지도 및 공간 분석 결과
+
 └── archive/
-    └── hvi_experiments/
+    └── hvi_experiments/                # HVI 산출 실험 및 보관 코드
 ```
+
+
 
 ---
 
